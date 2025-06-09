@@ -1,0 +1,78 @@
+import random
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+list1=[rock,paper,scissors]
+print("WELCOME TO ROCK PAPER SCISSORS GAME!\nAll the very best\n")
+computer_points=0
+user_points=0
+while user_points<5 and computer_points<5:
+    user_choice = int(input("MAKE A CHOICE\n0 for rock\n1 for paper\n2 for scissor\n"))
+    computer_choice=random.randint(0,2)
+    if user_choice==0:
+        print(list1[0])
+        print("Computer\'s CHOICE:")
+        print(list1[computer_choice])
+        if computer_choice==0:
+            print("DRAW! No points for both")
+        elif computer_choice==1:
+            print("Computer WON!")
+            computer_points+=1
+        else:
+            print("YOU WON!")
+            user_points+=1
+    elif user_choice==1:
+        print(list1[1])
+        print("Computer\'s Choice:")
+        print(list1[computer_choice])
+        if computer_choice==0:
+            print("YOU WON!")
+            user_points+=1
+        elif computer_choice==1:
+            print("DRAW.No points to both")
+        else:
+            print("Computer WON!")
+            computer_points+=1
+    elif user_choice==2:
+        print(list1[2])
+        print("Computer\'s Choice")
+        print(list1[computer_choice])
+        if computer_choice==0:
+            print("Computer WON!")
+            computer_points+=1
+        elif computer_choice==1:
+            print("YOU WON!")
+            user_points+=1
+        else:
+            print("DRAW.No points to both")
+    else:
+        print("INVALID INPUT!")
+if user_points==5:
+    print("CONGRATULATIONS YOU WON!")
+else:
+    print("YOU LOOSE:)")
+
+
