@@ -1,0 +1,68 @@
+def calculate_love_score(name1,name2):
+    count=0
+    count_t=0
+    count_u=0
+    count_r=0
+    count_e=0
+    count_l=0
+    count_o=0
+    count_v=0
+    for letter in name1:
+        if letter=="T" or letter=="t":
+            count_t+=1
+        elif letter=="R" or letter=="r":
+            count_r+=1
+        elif letter=="U" or letter=="u":
+            count_u+=1
+        elif letter=="E" or letter=="e":
+            count_e+=1
+        else:
+            count+=1
+    for letter in name2:
+        if letter=="T" or letter=="t":
+            count_t+=1
+        elif letter=="R" or letter=="r":
+            count_r+=1
+        elif letter=="U" or letter=="u":
+            count_u+=1
+        elif letter=="E" or letter=="e":
+            count_e+=1
+        else:
+            count+=1
+    for letter in name1:
+        if letter=="L" or letter=="l":
+            count_l+=1
+        elif letter=="O" or letter=="o":
+            count_o+=1
+        elif letter=="V" or letter=="v":
+            count_v+=1
+        else:
+            count+=1
+    for letter in name2:
+        if letter=="L" or letter=="l":
+            count_l+=1
+        elif letter=="O" or letter=="o":
+            count_o+=1
+        elif letter=="V" or letter=="v":
+            count_v+=1
+        else:
+            count+=1
+    print(f"T occurs {count_t} times")
+    print(f"R occurs {count_r} times")
+    print(f"U occurs {count_u} times")
+    print(f"E occurs {count_e} times")
+    total_true=count_t+count_r+count_u+count_e
+    print(f"Total={total_true}")
+    
+    print(f"L occurs {count_l} times")
+    print(f"O occurs {count_o} times")
+    print(f"V occurs {count_v} times")
+    print(f"E occurs {count_e} times")
+    total_love=count_l+count_o+count_v+count_e
+    print(f"Total={total_love}")
+    total_true=str(total_true)
+    total_love=str(total_love)
+    print("LOVE SCORE:"+total_true+total_love)
+name11=input("Enter the first name")
+name22=input("Enter the second name")
+calculate_love_score(name11,name22)
