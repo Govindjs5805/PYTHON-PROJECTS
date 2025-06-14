@@ -44,10 +44,10 @@ while not game_over:
     else:
         print("CORRECT GUESS!")
 
-        if lives == 0:
-            game_over = True
-            print(f"***********************YOU LOSE**********************")
-            print(f"Correct Word:{chosen_word}")
+    if lives == 0:
+        game_over = True
+        print(f"***********************YOU LOSE**********************")
+        print(f"Correct Word:{chosen_word}")
 
     if "_" not in display:
         game_over = True
