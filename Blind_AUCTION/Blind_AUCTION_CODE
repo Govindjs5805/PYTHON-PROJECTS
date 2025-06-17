@@ -1,0 +1,34 @@
+import art
+print(art.logo)
+resume=True
+bids_dictionary={}
+while resume==True:
+    name=input("What\'s your name ?")
+    bid=int(input("What\'s your bid? $"))
+    bids_dictionary[name]=bid
+    resume_option=input("Do you want to continue?\'yes\'/\'no\'")
+    if resume_option=="yes" or resume_option=="Yes":
+        resume=True
+        print("\n" * 100)
+    elif resume_option=="no" or resume_option=="No":
+        resume=False
+        print("\n"*100)
+    else:
+        print("Enter \"yes\" or \"no\"")
+current_bids=[]
+for key in bids_dictionary:
+    current_bids.append(bids_dictionary[key])
+highest=0
+for value in current_bids:
+    if value>highest:
+        highest=value
+name_of_winner=""
+for key in bids_dictionary:
+    if bids_dictionary[key]==highest:
+        name_of_winner=key
+print(art.logo)
+for letter in bids_dictionary:
+    print(f"{letter} : ${bids_dictionary[letter]}")
+print("\n")
+print("CONGRATULATIONS!")
+print(f"Winner of this Auction is {name_of_winner} with a bid of ${highest}")
