@@ -1,0 +1,9 @@
+def format_name(f_name,l_name):
+    display=""
+    display+=f_name
+    display+=" "
+    display+=l_name
+    print(display.title())
+first_name=input("Enter your first name : ")
+second_name=input("Enter your last name : ")
+format_name(first_name,second_name)
