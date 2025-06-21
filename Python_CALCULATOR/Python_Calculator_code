@@ -1,0 +1,60 @@
+def add(number1,number2):
+    result = number1 + number2
+    return result
+def subtract(number1,number2):
+    result = number1 - number2
+    return result
+def multiply(number1,number2):
+    result= number1 * number2
+    return result
+def divide(number1,number2):
+    result = number1 / number2
+    return result
+import art
+print(art.logo)
+resume=True
+while resume==True:
+    a=int(input("Enter a number"))
+    operation=input("Enter the operation you want to perform : + , - , * , /")
+    b=int(input("Enter the second number"))
+    output=0
+    if operation=="+":
+        output=add(a,b)
+        print(f"{a} + {b} = {output}")
+    elif operation=="-":
+        output=subtract(a,b)
+        print(f"{a} - {b} = {output}")
+    elif operation=="*":
+        output=multiply(a,b)
+        print(f"{a} * {b} = {output}")
+    elif operation=="/":
+        output=divide(a,b)
+        print(f"{a} / {b} = {output}")
+    else:
+        print("Invalid operation")
+    choice=input("Do you want to continue with RESULT then enter y , or if you want to start over then enter n , if you want to exit then enter end")
+    if choice=="end":
+        resume=False
+    elif choice=="y":
+        a=output
+        operation = input("Enter the operation you want to perform : + , - , * , /")
+        b = int(input("Enter the second number"))
+        output = 0
+        if operation == "+":
+            output = add(a, b)
+            print(f"{a} + {b} = {output}")
+        elif operation == "-":
+            output = subtract(a, b)
+            print(f"{a} - {b} = {output}")
+        elif operation == "*":
+            output = multiply(a, b)
+            print(f"{a} * {b} = {output}")
+        elif operation == "/":
+            output = divide(a, b)
+            print(f"{a} / {b} = {output}")
+        else:
+            print("Invalid operation")
+        choice = input(
+            "Do you want to continue with RESULT then enter y , or if you want to start over then enter n , if you want to exit then enter end")
+
+
