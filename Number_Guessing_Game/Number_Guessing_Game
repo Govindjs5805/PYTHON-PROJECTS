@@ -1,0 +1,52 @@
+import art
+print(art.logo)
+print("Welcome to the number guessing game!")
+import random
+number = random.randint(1,100)
+print("I\'m guessing a number between 1 and 100")
+difficulty=input("Choose your difficulty, h for hard e for easy")
+if difficulty=="h":
+    chances=5
+elif difficulty=="e":
+    chances=10
+else:
+    print("Invalid choice for difficulty!")
+print(f"You have {chances} chances, guess the right number")
+win=False
+while chances!=0 and win!=True:
+    guess=int(input("Make a guess : "))
+    if guess>number:
+        chances-=1
+        if guess-number>50:
+            print("Too High!")
+        elif 50>guess-number>30:
+            print("Guess is High!")
+        elif 30>guess-number>15:
+            print("A little bit lower")
+        else:
+            print("Almost there!A little lower")
+        print(f"{chances} chances LEFT!")
+        print("..........................")
+    elif guess<number:
+        chances-=1
+        if number-guess>50:
+            print("Too low!")
+        elif 50>number-guess>30:
+            print("Guess is Low!")
+        elif 30>number-guess>15:
+            print("A little bit higher!")
+        else:
+            print("Almost there!A little higher")
+        print(f"{chances} chances LEFT!")
+        print("..........................")
+    elif guess==number:
+        print("Yeyy! You guessed it right!")
+        print("YOU WON! Well Played")
+        win=True
+    else:
+        print("Invalid guess!")
+        print(f"{chances} chances LEFT!")
+        win=True
+    if chances==0:
+        print("Oh you are out of chances! YOU LOOSE")
+        print(f"Actual number : {number}")
