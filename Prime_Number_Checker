@@ -1,0 +1,17 @@
+def is_prime(num):
+    flag=0
+    flags=[]
+    list=range(2,num-1)
+    for number in list:
+        if num%number==0:
+            flags.append(False)
+        else:
+            flags.append(True)
+    for item in flags:
+        if item==False:
+            return False
+            break
+    return True
+result=is_prime(75)
+print(result)
+    
