@@ -1,0 +1,119 @@
+import art
+import random
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+def blackjack():
+    user=[]
+    failed=False
+    dealer=[]
+    print(art.logo)
+    player1=random.choice(cards)
+    user.append(player1)
+    player2=random.choice(cards)
+    user.append(player2)
+    dealer1=random.choice(cards)
+    dealer.append(dealer1)
+    dealer2=random.choice(cards)
+    dealer.append(dealer2)
+    print(f"Your cards : {user}")
+    total=0
+    dealer_total=0
+    for item in user:
+        total+=item
+    for item1 in dealer:
+        dealer_total+=item1
+    print(f"Current value : {total}")
+    print(f"Computer's first card : {dealer}")
+    if total==21 and dealer_total==21:
+        print("DRAW!")
+        print(f"Your total score :{total}")
+        print(f"Computer total score : {dealer_total}")
+    elif total==21:
+        print(f"YOUR TOTAL SCORE : {total}")
+        print("YOU WIN THE JACKPOT!")
+
+    elif total>21:
+        index=0
+        for item in user:
+            if item==11:
+                user[index]=1
+            total-=10
+            index+=1
+        if total>21:
+            print("YOU LOOSE!")
+    else:
+        hit_choice=input("Type \'y\' to get another card, type \'n\' to pass:")
+        while hit_choice=="y" and failed!=True:
+            player_random=random.choice(cards)
+            user.append(player_random)
+            total += player_random
+            if total==21:
+                print(f"Your cards : {user}")
+                print(f"Your points : {total}")
+                print("YOU WON!")
+                failed=True
+            elif total>21:
+                index=0
+                for item in user:
+                    if item == 11:
+                        user[index] = 1
+                        total-=10
+                    index+=1
+                if total > 21:
+                    print(f"Your final card : {user}")
+                    print(f"Current value : {total}")
+                    print(f"{total} exceeds 21!")
+                    print("YOU LOOSE!")
+                    failed=True
+            else:
+                print(f"Your points : {total}")
+                print(f"Your cards : {user}")
+                hit_choice = input("Type \'y\' to get another card, type \'n\' to pass:")
+        resume=True
+        while resume==True and failed!=True:
+            if dealer_total < 17:
+                dealer_random = random.choice(cards)
+                dealer.append(dealer_random)
+                dealer_total += dealer_random
+                print("...................")
+                print(f"Your cards : {user}")
+                print(f"Current value : {total}")
+                print(f"Computer's first card : {dealer}")
+                if dealer_total==21:
+                    resume=False
+                    print("DEALER WON!")
+                    print(f"Dealer points : {dealer_total}")
+            elif dealer_total == 21:
+                print("YOU LOOSE!")
+                print(f"Computer total points : {dealer_total}")
+                resume=False
+            elif dealer_total > 21:
+                index=0
+                for item in dealer:
+                    if item == 11:
+                        dealer[index] = 1
+                        dealer_total -= 10
+                    index += 1
+                if dealer_total > 21:
+                    print(f"Current dealer value : {dealer_total}")
+                    print(f"{dealer_total} exceeds 21!")
+                    print("YOU WIN!")
+                    resume = False
+            else:
+                print(f"Your total : {total}")
+                print(f"Dealer total : {dealer_total}")
+                if total>dealer_total:
+                    print("YOU WIN!")
+                    resume=False
+                elif total==dealer_total:
+                    print("DRAW!")
+                    resume=False
+                elif dealer_total>total:
+                    print("YOU LOOSE!")
+                    resume=False
+choice=input("Do you want to play a game of blackjack? y or n")
+while choice=="y":
+     blackjack()
+     choice = input("Do you want to play a game of blackjack? y or n")
+
+print("COME WHEN YOU WANT TO PLAY! Now U GO")
