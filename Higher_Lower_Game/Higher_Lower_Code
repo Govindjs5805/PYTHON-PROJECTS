@@ -1,0 +1,47 @@
+import art
+import game_data
+import random
+print(art.logo)
+failed=False
+points=0
+def compare(a,b):
+    if a["follower_count"] > b["follower_count"]:
+        return "A"
+    else:
+        return "B"
+while failed!=True:
+    if points!=0:
+        print(f"You are right! You have {points} points")
+    if points==0:
+        random_a=random.randint(0,len(game_data.data)-1)
+        a=game_data.data[random_a]
+    else:
+        a=b
+    print(f"Compare A : {a["name"]}, {a["description"]}, {a["country"]}")
+    print(art.vs)
+    random_b=random.randint(0,len(game_data.data)-1)
+    b=game_data.data[random_b]
+    if b==a:
+        random_b = random.randint(0, len(game_data.data) - 1)
+        b = game_data.data[random_b]
+    print(f"Against B : {b["name"]}, {b["description"]}, {b["country"]}")
+    guess=input("Who has more followers? Type A or B")
+    who_has_more=compare(a,b)
+    if guess==who_has_more:
+        failed=False
+        points+=1
+    else:
+        failed=True
+print(f"Sorry that's wrong! Final Score : {points}")
+if points<3:
+    print("Level : NEED TO BE IMPROVED!")
+elif 3<=points<=6:
+    print("Level : GREAT JOB!")
+elif 7<=points<=10:
+    print("Level : EXCELLENT!")
+elif 11<=points<=15:
+    print("Level : OUTSTANDING!")
+elif 16<=points<=20:
+    print("Level : GODLIKE!")
+else:
+    print("Level : HACKER!")
