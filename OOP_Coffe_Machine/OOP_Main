@@ -1,0 +1,28 @@
+from menu import Menu,MenuItem
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
+off=False
+coffe_obj=CoffeeMaker()
+money_machine=MoneyMachine()
+print("Welcome to COFFEE MACHINE!")
+while off!=True:
+    choice=input("What do you want? menu,report,profit or off the machine")
+    if choice=="menu":
+        menu=Menu()
+        print(menu.get_items())
+        drink=input("Which drink you need?")
+        juice=menu.find_drink(drink)
+        print(f"DRINK NAME : {juice.name}\nDRINK COST : {juice.cost}\nDRINK INGREDIENTS: {juice.ingredients}")
+        if coffe_obj.is_resource_sufficient(juice):
+            if money_machine.make_payment(juice.cost):
+                coffe_obj.make_coffee(juice)
+    elif choice=="report":
+        coffe_obj.report()
+    elif choice=="off":
+        print("COFFEE MACHINE SWITCHED OFF!")
+        off=True
+    elif choice=="profit":
+        money_machine.report()
+
+
+
